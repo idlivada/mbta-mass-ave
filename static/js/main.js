@@ -11,7 +11,6 @@ $(document).ready(function() {
 	    });
 	    reStyleContainers();
 	    setTimeout(updateCounters, 1000);
-	    //setTimeout(getTimes, 3000);
 	    secondsUntilNextResync = RESYNC_SECONDS;
 	});
     }
@@ -23,11 +22,11 @@ $(document).ready(function() {
 	
 	$('div.container').each(function(i,e) {
 	    var seconds = parseInt($(e).find('.timer').data('seconds'));
-	    if(seconds < 180) {
+	    if(seconds < 240) {
 		$(e).css('background-color', '#DB3026');
 	    }
 
-	    if(seconds >= 180 && seconds < 360) {
+	    if(seconds >= 240 && seconds < 360) {
 		$(e).css('background-color', '#7ABF66');
 	    }
 

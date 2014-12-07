@@ -19,8 +19,7 @@ def api():
     data = simplejson.loads(f.read())
     f.close()
 
-    timenow = calendar.timegm(time.gmtime())
-    json = simplejson.dumps([int(t['sch_arr_dt'])-timenow for t in data['mode'][0]['route'][0]['direction'][0]['trip']])
+    json = simplejson.dumps([int(t['pre_away']) for t in data['mode'][0]['route'][0]['direction'][0]['trip']])
     return flask.Response(json, mimetype='application/json')
     
 if __name__ == "__main__":
