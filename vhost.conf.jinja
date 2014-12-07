@@ -1,0 +1,13 @@
+<VirtualHost *:80>
+ServerName {{ servername }}
+
+WSGIScriptAlias / {{ homedir }}app.wsgi
+WSGIDaemonProcess {{ servername }} python-path={{ homedir }}:{{ homedir }}env/lib/python2.7/site-packages
+WSGIProcessGroup {{ servername }}
+
+<Directory {{ homedir }}>
+<Files wsgi.py>
+Require all granted
+</Files>
+</Directory>
+</VirtualHost>
